@@ -23,8 +23,11 @@ const ProductFilter = ({ categories, onFilterChange, onSearchChange }) => {
                 {category}
               </button>
             ))}
+          
+          </div>
+          <div>
           <label>
-            <input type="text" style={{ marginLeft:'150px',marginRight:'20px',width:'200px' ,fontFamily:'sans-serif' ,border : '1px solid white' , borderRadius:'10px' , boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px'}} onChange={(e) => onSearchChange(e.target.value)} />
+            <input type="text" style={{ marginLeft:'150px',marginRight:'20px',width:'200px' ,fontFamily:'sans-serif' ,border : '1px solid white' , borderRadius:'10px' , boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',marginTop :'40px'}} onChange={(e) => onSearchChange(e.target.value)} />
             Give a Hint
           </label>
           </div>
