@@ -1,21 +1,42 @@
-import React from 'react';
-
+import React, { useState } from 'react';
+import './ProductFilter.css'
 const ProductFilter = ({ categories, onFilterChange, onSearchChange }) => {
+  const [tit,setTit] = useState('All Products');
+
+  const handleC = ()=>{
+    setTit('Filtered Products');
+    
+  }
+  const handleCl= ()=>{
+    setTit('All Products');
+    
+  }
   return (
     <div>
-      <h2>Product Filter</h2>
-      <label>
-        Search:
-        <input type="text" onChange={(e) => onSearchChange(e.target.value)} />
-      </label>
-      <div>
-        <button onClick={() => onFilterChange('all')}>All</button>
-        {categories.map((category) => (
-          <button key={category} onClick={() => onFilterChange(category)}>
-            {category}
-          </button>
-        ))}
-      </div>
+      <center>
+
+        <div className='search'>
+          <div className='type'>
+            <button onClick={() => {onFilterChange('all'); handleCl();}}>All</button>
+            {categories.map((category) => (
+              <button key={category} onClick={() => {onFilterChange(category) ; handleC(); }} >
+                {category}
+              </button>
+            ))}
+          <label>
+            <input type="text" style={{ marginLeft:'150px',marginRight:'20px',width:'200px' ,fontFamily:'sans-serif' ,border : '1px solid white' , borderRadius:'10px' , boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px'}} onChange={(e) => onSearchChange(e.target.value)} />
+            Give a Hint
+          </label>
+          </div>
+        </div>
+        <div>
+          <br />
+          <br />
+        <h1 className='head'>{tit}</h1>
+
+        </div>
+      </center>
+      
     </div>
   );
 };
