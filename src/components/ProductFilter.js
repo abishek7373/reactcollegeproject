@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import './ProductFilter.css'
+import '../styles/ProductFilter.css';
 const ProductFilter = ({ categories, onFilterChange, onSearchChange }) => {
   const [tit,setTit] = useState('All Products');
 
-  const handleC = ()=>{
-    setTit('Filtered Products');
+  const handleC = (category)=>{
+    setTit(category+' Products');
     
   }
   const handleCl= ()=>{
@@ -13,22 +13,24 @@ const ProductFilter = ({ categories, onFilterChange, onSearchChange }) => {
   }
   return (
     <div>
-      <center>
+      <>
 
         <div className='search'>
           <div className='type'>
             <button onClick={() => {onFilterChange('all'); handleCl();}}>All</button>
             {categories.map((category) => (
-              <button key={category} onClick={() => {onFilterChange(category) ; handleC(); }} >
-                {category}
+              <button key={category} onClick={() => {onFilterChange(category) ; handleC(category[0].toUpperCase() +
+                category.slice(1)); }} >
+                {(category[0].toUpperCase() +
+                category.slice(1))}
               </button>
             ))}
           
           </div>
-          <div style={{marginLeft:'100px'}}>
+          <div>
           <label>
+            <input type="text" style={{ marginLeft:'150px',marginRight:'20px',width:'200px' ,fontFamily:'sans-serif' ,border : '1px solid white' , borderRadius:'10px' , boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',marginTop :'40px'}} onChange={(e) => onSearchChange(e.target.value)} />
             Give a Hint
-            <input type="text" style={{ marginLeft:'20px',marginRight:'20px',width:'200px' ,fontFamily:'sans-serif' ,border : '1px solid white' , borderRadius:'10px' , boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',marginTop :'40px',paddingLeft:'5px'}} onChange={(e) => onSearchChange(e.target.value)} />
           </label>
           </div>
         </div>
@@ -38,7 +40,7 @@ const ProductFilter = ({ categories, onFilterChange, onSearchChange }) => {
         <h1 className='head'>{tit}</h1>
 
         </div>
-      </center>
+      </>
       
     </div>
   );
