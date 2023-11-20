@@ -25,10 +25,10 @@ const ProductFilter = ({ categories, onFilterChange, onSearchChange }) => {
             ))}
           
           </div>
-          <div>
+          <div style={{marginLeft:'100px'}}>
           <label>
-            <input type="text" style={{ marginLeft:'150px',marginRight:'20px',width:'200px' ,fontFamily:'sans-serif' ,border : '1px solid white' , borderRadius:'10px' , boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',marginTop :'40px'}} onChange={(e) => onSearchChange(e.target.value)} />
             Give a Hint
+            <input type="text" style={{ marginLeft:'20px',marginRight:'20px',width:'200px' ,fontFamily:'sans-serif' ,border : '1px solid white' , borderRadius:'10px' , boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',marginTop :'40px',paddingLeft:'5px'}} onChange={(e) => onSearchChange(e.target.value)} />
           </label>
           </div>
         </div>
