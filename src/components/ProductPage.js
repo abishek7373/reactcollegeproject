@@ -11,7 +11,7 @@ const ProductPage = () => {
   const [selectValue, setSelectValue] = useState(1);
 
   useEffect(() => {
-    const selectedProduct = productsData.find((item) => item.filename[0] == id);
+    const selectedProduct = productsData.find((item) => item.id == id);
     setProduct(selectedProduct);
   }, [id]);
 
@@ -55,18 +55,13 @@ const ProductPage = () => {
       <div className='product-main-div'>
         <div className='product-main-div-1'>
           <div className='product-img-div'>
-            <img src={'/img/' + filename} style={{borderRadius:'10px', boxShadow: 'rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px'
-}} alt={title} />
+            <img src={'/img/' + filename} alt={title} />
           </div>
           <div className='product-detail-div'>
             <h1>{title}</h1>
-            <br />
-            <p>Category :  {type}</p>
-            <br />
-            <p>Price : ${price}</p>
-            <br />
-            <p>Rating : {rating}/5</p>
-            <br />
+            <h6>Category {type}</h6>
+            <h6>Price ${price}</h6>
+            <h6>Rating {rating}/5</h6>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit
               amet fringilla lorem. Interdum et malesuada fames ac ante ipsum
@@ -76,8 +71,7 @@ const ProductPage = () => {
             <select
               style={{
                 color: 'black',
-                width:"50px",
-                marginTop:"15px"
+                width:"50px"
               }}
               value={selectValue}
               onChange={handleSelectChange}
@@ -88,10 +82,8 @@ const ProductPage = () => {
                 </option>
               ))}
             </select>
-            <button type="button" style={{
-              width:"150px"
-            }} onClick={handleAddToCart}>
-              Add to Cart
+            <button type="button" onClick={handleAddToCart}>
+              Add to Basket
             </button>
           </div>
         </div>

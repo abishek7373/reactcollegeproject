@@ -10,7 +10,10 @@ function Navbar() {
       <input type="checkbox" id="nav-check" />
       <div class="nav-header">
         <div class="nav-title">
-          JoGeek
+        <a href='/' style={{
+          color:"white",
+        textDecoration:"none"
+        }}>GreenBasket</a>
         </div>
       </div>
       <div class="nav-btn">
@@ -24,7 +27,6 @@ function Navbar() {
       <div class="nav-links">
         <a href='/'>Home</a>
         <a href='/shop'>Shop</a>
-        <a href='/about'>About</a>
         {user ? (
           <div className='login-email-div'>
               <a href='/cart' style={{color:'white'}}>Cart</a>
